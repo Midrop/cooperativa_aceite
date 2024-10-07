@@ -1,3 +1,3 @@
 # App para cooperative de aceite de oliva
 
-A new Flutter project.
+El codigo hay que meterlo en lib/
