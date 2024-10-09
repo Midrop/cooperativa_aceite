@@ -5,8 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
-// Ideal time to initialize
   await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  await FirebaseAuth.instance.customAuthDomain('url.firebaseapp.com', 9099);
 //runApp(MyApp());
 }
