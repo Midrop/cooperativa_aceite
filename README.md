@@ -1,5 +1,7 @@
 # App para cooperative de aceite de oliva
 
-El codigo hay que meterlo en lib/
+Cada funcionalidad tendra su propio archivo .dart dentro de lib/
 
-Cada funcionalidad tendra su propio archivo .dart
+### Comandos
+- [Comandos de flutter](https://docs.flutter.dev/reference/flutter-cli)
+- [Comandos de Github](https://github.com/jm-willy/guia_git)
