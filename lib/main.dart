@@ -1,24 +1,33 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const LandingPageApp());
+  runApp(const App());
 }
 
-class LandingPageApp extends StatelessWidget {
-  const LandingPageApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Cooperativa',
       debugShowCheckedModeBanner: false,
-      home: LandingPage(),
+      home: const LandingPage(title: 'Inicio'),
+      theme: ThemeData(
+          useMaterial3: true,
+          colorSchemeSeed: const Color.fromARGB(255, 0, 142, 0)),
     );
   }
 }
 
-class LandingPage extends StatelessWidget {
-  const LandingPage({super.key});
+class LandingPage extends StatefulWidget {
+  final String? title;
+  const LandingPage({super.key, this.title});
+  @override
+  State<LandingPage> createState() => LandingPageState();
+}
 
+class LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,11 +49,12 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
             ),
+
             const SizedBox(height: 20),
 
             // Título principal
             const Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(20.0),
               child: Text(
                 'Bienvenidos',
                 style: TextStyle(
@@ -67,7 +77,7 @@ class LandingPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
 
             // Botón de llamada a la acción (CTA)
             ElevatedButton(
@@ -85,7 +95,7 @@ class LandingPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
 
             // Pie de página con enlaces
             const Padding(
@@ -96,6 +106,23 @@ class LandingPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
+            NavigationBar(
+                indicatorColor: const Color.fromARGB(116, 91, 120, 83),
+                backgroundColor: const Color.fromARGB(77, 27, 91, 0),
+                destinations: const <Widget>[
+                  NavigationDestination(
+                    icon: Icon(Icons.campaign),
+                    label: 'Anuncios',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.home),
+                    label: 'Principal',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.request_quote),
+                    label: 'Recibos',
+                  ),
+                ])
           ],
         ),
       ),
