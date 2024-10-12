@@ -119,7 +119,7 @@ class LandingPageState extends State<LandingPage> {
                     label: 'Principal',
                   ),
                   NavigationDestination(
-                    icon: Icon(Icons.request_quote),
+                    icon: Icon(Icons.receipt),
                     label: 'Recibos',
                   ),
                 ])
