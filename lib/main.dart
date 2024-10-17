@@ -76,7 +76,31 @@ class LandingPageState extends State<LandingPage> {
                 textAlign: TextAlign.center,
               ),
             ),
-
+            //Dar un espacio entre lo anterior y los TextField
+            const SizedBox(height: 30.0),
+            //Recoge el nombre de usuario
+            const SizedBox(
+              width: 300.0,
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  labelText: 'Usuario',
+                ),
+              ),
+            ),
+            // Dar un espacio entre un TextField y otro
+            const SizedBox(height: 12.0),
+            // Recoge el Password
+            const SizedBox(
+              width: 300.0,
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  labelText: 'Contraseña',
+                ),
+                obscureText: true,
+              ),
+            ),
             const SizedBox(height: 20),
 
             // Botón de llamada a la acción (CTA)
