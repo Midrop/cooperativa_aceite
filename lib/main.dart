@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'ofertas.dart';
+
 void main() {
   runApp(const App());
 }
@@ -28,8 +30,39 @@ class LandingPage extends StatefulWidget {
 }
 
 class LandingPageState extends State<LandingPage> {
+  int _selectedIndex = 1;
+
   @override
   Widget build(BuildContext context) {
+    // var navBarIndex;
+
+    // Widget buildBody() {
+    //   switch (_selectedIndex) {
+    //     case 0:
+    //       return const Center(child: Text('Home Screen'));
+    //     case 1:
+    //       return const Center(child: Text('Search Screen'));
+    //     case 2:
+    //       return const MyHomePage(title: 'QWERTY');
+    //     default:
+    //       return const Center(child: Text('Home Screen'));
+    //   }
+    // }
+
+    Widget page;
+    switch (_selectedIndex) {
+      case 0:
+        page = const MyHomePage(title: 'QWERTY');
+        return page;
+      // break;
+      case 1:
+        page = const MyHomePage(title: 'QWERTY');
+        return page;
+      // break;
+      default:
+        throw UnimplementedError('no widget for $_selectedIndex');
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('INICIO'),
@@ -107,8 +140,15 @@ class LandingPageState extends State<LandingPage> {
               ),
             ),
             NavigationBar(
+                onDestinationSelected: (int index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
+                selectedIndex: _selectedIndex,
                 indicatorColor: const Color.fromARGB(116, 91, 120, 83),
-                backgroundColor: const Color.fromARGB(77, 27, 91, 0),
+                backgroundColor: const Color.fromARGB(77, 116, 149, 102),
+                // selectedIndex: 1,
                 destinations: const <Widget>[
                   NavigationDestination(
                     icon: Icon(Icons.campaign),
