@@ -64,29 +64,32 @@ class MainPageState extends State<MainPage> {
         backgroundColor: Colors.teal,
       ),
       body: page,
-      bottomNavigationBar: NavigationBar(
-          onDestinationSelected: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          selectedIndex: _selectedIndex,
-          indicatorColor: const Color.fromARGB(116, 91, 120, 83),
-          backgroundColor: const Color.fromARGB(77, 116, 149, 102),
-          destinations: const <Widget>[
-            NavigationDestination(
-              icon: Icon(Icons.campaign),
-              label: 'Anuncios',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.home),
-              label: 'Principal',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.receipt),
-              label: 'Recibos',
-            ),
-          ]),
+      bottomNavigationBar: Visibility(
+        visible: userLogged,
+        child: NavigationBar(
+            onDestinationSelected: (int index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            selectedIndex: _selectedIndex,
+            indicatorColor: const Color.fromARGB(116, 91, 120, 83),
+            backgroundColor: const Color.fromARGB(77, 116, 149, 102),
+            destinations: const <Widget>[
+              NavigationDestination(
+                icon: Icon(Icons.campaign),
+                label: 'Anuncios',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.home),
+                label: 'Principal',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.receipt),
+                label: 'Recibos',
+              ),
+            ]),
+      ),
     );
   }
 }
