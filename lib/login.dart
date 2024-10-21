@@ -1,22 +1,5 @@
 import 'package:cooperativa_aceite/main.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-//Future<void> main() async {
-// WidgetsFlutterBinding.ensureInitialized();
-// await Firebase.initializeApp();
-// await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-//await FirebaseAuth.instance.useAuthEmulator('my-url.firebaseapp.com', 9099);
-//   await FirebaseAuth.instance.customAuthDomain!('my-url.firebaseapp.com');
-//runApp(MyApp());
-//}
-
-// The function can't be unconditionally invoked because it can be 'null'.
-// Try adding a null check ('!')ç
-
-import 'package:flutter/material.dart';
-import 'home.dart'; // Importamos la página principal desde home.dart
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -41,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _login() {
     if (_formKey.currentState!.validate()) {
       // Navegamos a MyHomePage cuando el login es exitoso
+      userLogged = true;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -54,11 +38,11 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              const Color(0xFFE2E6D6), // Verde oliva claro
-              const Color(0xFFC6D9B9), // Verde oliva medio
+              Color(0xFFE2E6D6), // Verde oliva claro
+              Color(0xFFC6D9B9), // Verde oliva medio
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
