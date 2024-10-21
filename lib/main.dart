@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'ofertas.dart';
+import 'login.dart';
 
 void main() {
   runApp(const App());
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Cooperativa',
       debugShowCheckedModeBanner: false,
-      home: const LandingPage(title: 'Inicio'),
+      home: const LoginScreen(), //const LandingPage(title: 'Inicio'),
       theme: ThemeData(
           useMaterial3: true,
           colorSchemeSeed: const Color.fromARGB(255, 0, 142, 0)),
