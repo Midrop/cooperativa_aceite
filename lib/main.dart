@@ -58,6 +58,7 @@ class MainPageState extends State<MainPage> {
         throw UnimplementedError('no widget for $_selectedIndex');
     }
 
+    userLogged = true;
     return Scaffold(
       appBar: AppBar(
         title: const Text('BARRA DE APLICACION, ICONO IZQUIRDA LOGIN/LOGOUT'),
