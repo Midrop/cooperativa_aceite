@@ -4,6 +4,10 @@
 - Cread ramas sin miedo para subir codigo de prueba, pero recordad de hacer el push desde una rama que no sea "master" y tampoco hacerlos a "master"
 - Tiene que ser responsive(escritorio y web)
 
+## Instalar proyecto
+- git clone
+- flutter pub get
+
 ## Comandos
 - [Comandos de flutter](https://docs.flutter.dev/reference/flutter-cli)
 - [Comandos de git](https://github.com/jm-willy/guia_git)
