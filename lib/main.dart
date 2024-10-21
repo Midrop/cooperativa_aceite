@@ -4,7 +4,7 @@ import 'home.dart';
 import 'login.dart';
 import 'ofertas.dart';
 
-bool userLogged = true;
+bool userLogged = false;
 
 void main() {
   runApp(const App());
