@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
-import 'ofertas.dart';
 import 'login.dart';
+import 'ofertas.dart';
+
+bool userLogged = true;
 
 void main() {
   runApp(const App());
@@ -13,10 +15,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget openingPage = const LoginScreen();
+    if (userLogged) {
+      openingPage = const MainPage();
+    }
+
     return MaterialApp(
       title: 'Cooperativa',
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(), //const LandingPage(title: 'Inicio'),
+      home: openingPage, //const LandingPage(title: 'Inicio'),
       theme: ThemeData(
           useMaterial3: true,
           colorSchemeSeed: const Color.fromARGB(255, 0, 142, 0)),
@@ -24,14 +31,14 @@ class App extends StatelessWidget {
   }
 }
 
-class LandingPage extends StatefulWidget {
+class MainPage extends StatefulWidget {
   final String? title;
-  const LandingPage({super.key, this.title});
+  const MainPage({super.key, this.title});
   @override
-  State<LandingPage> createState() => LandingPageState();
+  State<MainPage> createState() => MainPageState();
 }
 
-class LandingPageState extends State<LandingPage> {
+class MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   @override
