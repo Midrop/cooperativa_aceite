@@ -15,7 +15,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget openingPage = const LoginScreen();
+    Widget openingPage = const LoginPage();
     if (userLogged) {
       openingPage = const MainPage();
     }
@@ -64,6 +64,18 @@ class MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: const Text('BARRA DE APLICACION, ICONO IZQUIRDA LOGIN/LOGOUT'),
         backgroundColor: Colors.teal,
+        actions: [
+          IconButton(
+              onPressed: () {
+                userLogged = false;
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              icon: const Icon(Icons.logout))
+        ],
       ),
       body: page,
       bottomNavigationBar: Visibility(
