@@ -33,6 +33,12 @@ class _OffersPageState extends State<OffersPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.all(40.0),
+              child: Text(
+                'Ejemplo de pagina, archivo: ofertas.dart',
+              ),
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),
