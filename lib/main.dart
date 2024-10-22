@@ -39,8 +39,9 @@ class MainPage extends StatefulWidget {
 }
 
 class MainPageState extends State<MainPage> {
-  Widget page = const HomePage(title: 'PAGINA 1');
+  Widget page = const HomePage(title: 'PAGINA HOME');
   bool atProfilePage = false;
+  final double _barIconSize = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class MainPageState extends State<MainPage> {
           Visibility(
             visible: atProfilePage,
             child: IconButton(
-              iconSize: 32,
+              iconSize: _barIconSize,
               onPressed: () {
                 setState(() {
                   atProfilePage = false;
@@ -65,7 +66,7 @@ class MainPageState extends State<MainPage> {
           Visibility(
             visible: userLogged && !atProfilePage,
             child: IconButton(
-                iconSize: 32,
+                iconSize: _barIconSize,
                 onPressed: () {
                   setState(() {
                     atProfilePage = true;
@@ -77,7 +78,7 @@ class MainPageState extends State<MainPage> {
           Visibility(
             visible: userLogged,
             child: IconButton(
-                iconSize: 32,
+                iconSize: _barIconSize,
                 onPressed: () {
                   userLogged = false;
                   Navigator.pushAndRemoveUntil(
