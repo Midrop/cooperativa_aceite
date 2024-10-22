@@ -41,7 +41,7 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage> {
   Widget page = const HomePage(title: 'PAGINA HOME');
   bool atProfilePage = false;
-  final double _barIconSize = 30;
+  static const double _barIconSize = 30;
 
   @override
   Widget build(BuildContext context) {
