@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'login.dart';
-import 'ofertas.dart';
+import 'profile.dart';
 
-bool userLogged = false;
+bool userLogged = true;
 
 void main() {
   runApp(const App());
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Cooperativa',
       debugShowCheckedModeBanner: false,
-      home: openingPage, //const LandingPage(title: 'Inicio'),
+      home: openingPage,
       theme: ThemeData(
           useMaterial3: true,
           colorSchemeSeed: const Color.fromARGB(226, 0, 133, 0)),
@@ -39,35 +39,45 @@ class MainPage extends StatefulWidget {
 }
 
 class MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
+  Widget page = const HomePage(title: 'PAGINA 1');
+  bool atProfilePage = false;
 
   @override
   Widget build(BuildContext context) {
-    // bool _isVisible = userLogged;
-
-    Widget page;
-    switch (_selectedIndex) {
-      case 0:
-        page = const MyHomePage(title: 'PAGINA 0');
-        break;
-      case 1:
-        page = const HomePage(title: 'PAGINA 1');
-        break;
-      case 2:
-        page = const MyHomePage(title: 'PAGINA 2');
-        break;
-      default:
-        throw UnimplementedError('no widget for $_selectedIndex');
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('BARRA DE APLICACION'),
         backgroundColor: const Color.fromARGB(142, 56, 151, 43),
         actions: [
           Visibility(
+            visible: atProfilePage,
+            child: IconButton(
+              iconSize: 32,
+              onPressed: () {
+                setState(() {
+                  atProfilePage = false;
+                  page = const HomePage();
+                });
+              },
+              icon: const Icon(Icons.arrow_back),
+            ),
+          ),
+          Visibility(
+            visible: userLogged && !atProfilePage,
+            child: IconButton(
+                iconSize: 32,
+                onPressed: () {
+                  setState(() {
+                    atProfilePage = true;
+                    page = const ProfilePage();
+                  });
+                },
+                icon: const Icon(Icons.account_circle)),
+          ),
+          Visibility(
             visible: userLogged,
             child: IconButton(
+                iconSize: 32,
                 onPressed: () {
                   userLogged = false;
                   Navigator.pushAndRemoveUntil(
@@ -77,36 +87,10 @@ class MainPageState extends State<MainPage> {
                   );
                 },
                 icon: const Icon(Icons.logout)),
-          )
+          ),
         ],
       ),
       body: page,
-      bottomNavigationBar: Visibility(
-        visible: userLogged,
-        child: NavigationBar(
-            onDestinationSelected: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            selectedIndex: _selectedIndex,
-            indicatorColor: const Color.fromARGB(116, 91, 120, 83),
-            backgroundColor: const Color.fromARGB(77, 116, 149, 102),
-            destinations: const <Widget>[
-              NavigationDestination(
-                icon: Icon(Icons.campaign),
-                label: 'Anuncios',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.home),
-                label: 'Principal',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.receipt),
-                label: 'Recibos',
-              ),
-            ]),
-      ),
     );
   }
 }
