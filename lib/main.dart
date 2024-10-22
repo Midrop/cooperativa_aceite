@@ -26,7 +26,7 @@ class App extends StatelessWidget {
       home: openingPage, //const LandingPage(title: 'Inicio'),
       theme: ThemeData(
           useMaterial3: true,
-          colorSchemeSeed: const Color.fromARGB(255, 0, 142, 0)),
+          colorSchemeSeed: const Color.fromARGB(226, 0, 133, 0)),
     );
   }
 }
@@ -62,19 +62,22 @@ class MainPageState extends State<MainPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BARRA DE APLICACION, ICONO IZQUIRDA LOGIN/LOGOUT'),
-        backgroundColor: Colors.teal,
+        title: const Text('BARRA DE APLICACION'),
+        backgroundColor: const Color.fromARGB(142, 56, 151, 43),
         actions: [
-          IconButton(
-              onPressed: () {
-                userLogged = false;
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                  (Route<dynamic> route) => false,
-                );
-              },
-              icon: const Icon(Icons.logout))
+          Visibility(
+            visible: userLogged,
+            child: IconButton(
+                onPressed: () {
+                  userLogged = false;
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    (Route<dynamic> route) => false,
+                  );
+                },
+                icon: const Icon(Icons.logout)),
+          )
         ],
       ),
       body: page,
