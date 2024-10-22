@@ -5,8 +5,9 @@
 - Tiene que ser responsive(escritorio y web)
 
 ## Instalar proyecto
-- git clone
-- flutter pub get
+1. git clone
+2. flutter pub get
+3. cambiar el valor de `bool userLogged = true;` para ver el loggin o la app
 
 ## Comandos
 - [Comandos de flutter](https://docs.flutter.dev/reference/flutter-cli)
