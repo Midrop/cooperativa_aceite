@@ -16,6 +16,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget openingPage = const LoginScreen();
+
     if (userLogged) {
       openingPage = const MyHomePage();
     }
